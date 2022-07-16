@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Message</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <form action="">
+            <h1 class="title has-text-grey	">Gerador de links para mensagens no WhatsApp</h1>
+
+            <div class="field">
+                <label class="label is-color-light">Número</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input autocomplete="off" class="input is-color-light is-background-transparent" type="text" placeholder="Número sem o DDD" id="number">
+                    <span class="icon is-small is-left">
+                      <span class="iconify" data-icon="carbon:phone-filled" style="color: #777;"></span>
+                    </span>
+                </div>
+                <p class="help is-success">Exemplo: (99) 99999-9999</p>
+            </div>
+
+            <div class="field">
+                <label class="label is-color-light">Mensagem (opcional)</label>
+                <div class="control">
+                    <textarea class="textarea has-fixed-size is-color-light is-background-transparent" placeholder="Você pode escrever uma mensagem personalizada que vai ser exibida assim que abrir o chat da conversa" id="message"></textarea>
+                </div>
+                <p class="help is-success">Exemplo: Olá, como vai?</p>
+            </div>
+
+            <div class="field is-grouped">
+                <div class="control">
+                    <button onclick="return send();" class="button is-info is-outlined" id="submit">Gerar</button>
+                </div>
+                <div class="control">
+                    <input id="reset" type="reset" class="button is-danger is-outlined" value="Limpar">
+                </div>
+            </div>
+
+            <div class="field link-field">
+                <label class="label is-color-light">Link gerado</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input autocomplete="off" class="input is-color-light is-background-transparent" type="text" id="link">
+                    <span class="icon is-small is-left">
+                      <span class="iconify" data-icon="akar-icons:link-chain" style="color: #777;"></span>
+                    </span>
+                </div>
+                <button class="button is-info is-outlined is-fullwidth mt-2" id="copy">Copiar</button>
+                <a class="button is-info is-outlined is-fullwidth mt-2" id="open" target="_blank">Abrir</a>
+            </div>
+
+        </form>
+    </main>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.2.1/iconify.min.js"></script>
+<script src="js/script.js"></script>
+
+</html>
