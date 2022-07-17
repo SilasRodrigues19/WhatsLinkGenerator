@@ -9,30 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main class="area">
-        <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
+    <main>
+        <svg id="visual" preserveAspectRatio="none" viewBox="0 0 960 540" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><path d="M0 396L14.5 398.7C29 401.3 58 406.7 87.2 417.5C116.3 428.3 145.7 444.7 174.8 447.5C204 450.3 233 439.7 262 435.7C291 431.7 320 434.3 349 435.7C378 437 407 437 436.2 439.3C465.3 441.7 494.7 446.3 523.8 451.5C553 456.7 582 462.3 611 457.5C640 452.7 669 437.3 698 425.3C727 413.3 756 404.7 785.2 404.2C814.3 403.7 843.7 411.3 872.8 407C902 402.7 931 386.3 945.5 378.2L960 370L960 541L945.5 541C931 541 902 541 872.8 541C843.7 541 814.3 541 785.2 541C756 541 727 541 698 541C669 541 640 541 611 541C582 541 553 541 523.8 541C494.7 541 465.3 541 436.2 541C407 541 378 541 349 541C320 541 291 541 262 541C233 541 204 541 174.8 541C145.7 541 116.3 541 87.2 541C58 541 29 541 14.5 541L0 541Z" fill="#0066FF" stroke-linecap="round" stroke-linejoin="miter"></path></svg>
         <form action="">
             <h1 class="title has-text-grey	">Gerador de links para mensagens no WhatsApp</h1>
 
             <div class="field">
-                <label class="label is-color-light">Número</label>
+                <label class="label is-color-gray">Número</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input autocomplete="off" class="input is-color-light is-background-transparent" type="text" placeholder="Número sem o DDD" id="number">
+                    <input autocomplete="off" class="phone_with_ddd input is-color-gray is-background-transparent has-border-gray" type="tel" placeholder="Seu número" id="number" maxlength="15">
                     <span class="icon is-small is-left">
                       <span class="iconify" data-icon="carbon:phone-filled" style="color: #777;"></span>
                     </span>
@@ -41,9 +31,9 @@
             </div>
 
             <div class="field">
-                <label class="label is-color-light">Mensagem (opcional)</label>
+                <label class="label is-color-gray">Mensagem (opcional)</label>
                 <div class="control">
-                    <textarea class="textarea has-fixed-size is-color-light is-background-transparent" placeholder="Você pode escrever uma mensagem personalizada que vai ser exibida assim que abrir o chat da conversa" id="message"></textarea>
+                    <textarea class="textarea has-fixed-size is-color-gray is-background-transparent has-border-gray" placeholder="Você pode escrever uma mensagem personalizada que vai ser exibida assim que abrir o chat da conversa" id="message"></textarea>
                 </div>
                 <p class="help is-success">Exemplo: Olá, como vai?</p>
             </div>
@@ -58,14 +48,13 @@
             </div>
 
             <div class="field link-field">
-                <label class="label is-color-light">Link gerado</label>
+                <label class="label is-color-gray">Link gerado</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input autocomplete="off" class="input is-color-light is-background-transparent" type="text" id="link">
+                    <input autocomplete="off" class="input is-color-gray is-background-transparent" type="text" id="link">
                     <span class="icon is-small is-left">
                       <span class="iconify" data-icon="akar-icons:link-chain" style="color: #777;"></span>
                     </span>
                 </div>
-                <button class="button is-info is-outlined is-fullwidth mt-2" id="copy">Copiar</button>
                 <a class="button is-info is-outlined is-fullwidth mt-2" id="open" target="_blank">Abrir</a>
             </div>
 
@@ -74,6 +63,13 @@
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.2.1/iconify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-notify@0.5.5/dist/simple-notify.min.js"></script>
 <script src="js/script.js"></script>
+
+<script>
+    $('.phone_with_ddd').mask('(00) 00000-0000');
+</script>
 
 </html>
