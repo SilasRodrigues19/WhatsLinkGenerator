@@ -1,9 +1,9 @@
-const linkField = document.querySelector('.link-field'),
-    copyLink = document.querySelector('#copy');
+const linkField = document.querySelector('.link-field');
 
 linkField.style.display = 'none';
 
 const send = () => {
+    $('.phone_with_ddd').mask('00000000000');
     let number = document.querySelector('#number').value,
         message = document.querySelector('#message').value,
         submit = document.querySelector('#submit'),
@@ -16,41 +16,47 @@ const send = () => {
 
     const textUrl = `?text=${message}`;
 
-    if (number == '') {
-        alert('O campo número é obrigatório');
+    if (number == '' || number.length < 11) {
+        notifyTitle = 'Número é obrigatório';
+        pushNotify();
         return false;
-    } else {
-        const result = `${baseUrl + number}`;
-
-        if (message != '') {
-            link.value = `${baseUrl + number + textUrl}`;
-            open.href = `${baseUrl + number + textUrl}`;
-        } else {
-            link.value = result;
-            open.href = result;
-        }
-        linkField.style.display = 'block';
     }
+    const result = `${baseUrl + number}`;
+
+    if (message != '') {
+        link.value = `${baseUrl + number + textUrl}`;
+        open.href = `${baseUrl + number + textUrl}`;
+    } else {
+        link.value = result;
+        open.href = result;
+    }
+
+    linkField.style.display = 'block';
 };
 
 submit.addEventListener('click', (e) => {
     e.preventDefault();
+    $('.phone_with_ddd').mask('(00) 00000-0000');
 });
 
 reset.addEventListener('click', (e) => {
+    $('.phone_with_ddd').mask('(00) 00000-0000');
     linkField.style.display = 'none';
 });
 
-copyLink.addEventListener('click', (e) => {
-    link.focus();
-    link.select();
+let newNotify,
+    notifyTitle = '';
 
-    try {
-        var ok = document.execCommand('copy');
-        if (ok) {
-            alert('Copiado');
-        }
-    } catch (e) {
-        alert(e);
-    }
-});
+const pushNotify = () => {
+    newNotify = new Notify({
+        status: 'info',
+        speed: 850,
+        autoclose: true,
+        effect: 'slide',
+        title: `${notifyTitle}`,
+    });
+};
+
+const closeNotify = () => {
+    newNotify.close();
+};
