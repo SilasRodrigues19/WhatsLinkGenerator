@@ -49,7 +49,7 @@ let newNotify,
 
 const pushNotify = () => {
     newNotify = new Notify({
-        status: 'info',
+        status: 'warning',
         speed: 850,
         autoclose: true,
         effect: 'slide',

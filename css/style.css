@@ -28,7 +28,7 @@ main {
     bottom: 0;
     width: 100%;
     height: 100%;
-    opacity: .3;
+    opacity: .5;
 }
 
 .is-background-transparent {
@@ -49,7 +49,8 @@ main {
 
 .notify {
     background: transparent;
-    --notify-info: #485fc7;
+    --notify-warning-progress: #48c78e;
+    --notify-warning: #48c78e;
     --notify-gray: #777;
 }
 
