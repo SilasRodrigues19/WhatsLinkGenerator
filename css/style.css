@@ -63,6 +63,11 @@ main:before {
     border-color: #777;
 }
 
+.input:focus, .textarea:focus {
+    border-color: #48c78e;
+    box-shadow: none;
+}
+
 .notify {
     background: transparent;
     --notify-warning-progress: #48c78e;
@@ -72,4 +77,15 @@ main:before {
 
 .notify__title {
     --notify-gray: #999;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 5rem 2rem;
+    }
+
+    .title {
+        font-size: 22px;
+        text-align: center;
+    }
 }
