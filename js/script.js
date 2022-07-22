@@ -60,3 +60,12 @@ const pushNotify = () => {
 const closeNotify = () => {
     newNotify.close();
 };
+
+const textArea = document.querySelector('textarea');
+
+textArea.addEventListener('keyup', (e) => {
+    textArea.style.height = 'auto';
+
+    let scrollHeight = e.target.scrollHeight;
+    textArea.style.height = `${scrollHeight}px`;
+});
